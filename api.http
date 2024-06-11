@@ -1,0 +1,31 @@
+# GET USERS
+GET http://localhost:3333/users
+Content-Type: application/json
+
+###
+
+# GET UNIQUE USER
+GET http://localhost:3333/users/74b94a13-0c03-451c-bc37-d7e59fadc078
+Content-Type: application/json
+
+###
+
+# POST NEW USER
+POST http://localhost:3333/users
+Content-Type: application/json
+
+{
+  "name": "Crislaine",
+  "email": "crislaine@test.com"
+}
+
+###
+
+#POST Create Todo
+POST http://localhost:3333/todos
+Content-Type: application/json
+x-user-id: 74b94a13-0c03-451c-bc37-d7e59fadc078
+
+{
+  "title": "Minha segunda tarefa"
+}
