@@ -3,6 +3,7 @@ import cors from "cors"
 
 import { userRouter } from "./routes/user.route"
 import { todoRouter } from "./routes/todo.route"
+import { checkoutRouter } from "./routes/checkout.route"
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(cors({
 //Routers
 app.use(userRouter)
 app.use(todoRouter)
+app.use(checkoutRouter)
 
 app.get("/", (req, res) => {
   return res.send("Hello World")

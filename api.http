@@ -5,7 +5,7 @@ Content-Type: application/json
 ###
 
 # GET UNIQUE USER
-GET http://localhost:3333/users/74b94a13-0c03-451c-bc37-d7e59fadc078
+GET http://localhost:3333/users/9e34284e-fb15-4304-8d22-9a8d1186523c
 Content-Type: application/json
 
 ###
@@ -15,8 +15,8 @@ POST http://localhost:3333/users
 Content-Type: application/json
 
 {
-  "name": "Crislaine",
-  "email": "crislaine@test.com"
+  "name": "Hamiceis Pereira",
+  "email": "hamiceis@test.com"
 }
 
 ###
@@ -24,8 +24,15 @@ Content-Type: application/json
 #POST Create Todo
 POST http://localhost:3333/todos
 Content-Type: application/json
-x-user-id: 74b94a13-0c03-451c-bc37-d7e59fadc078
+x-user-id: 6f77410e-0219-44a6-90c1-1871c9d9d7f7
 
 {
-  "title": "Minha segunda tarefa"
+  "title": "Minha primeira tarefa"
 }
+
+###
+# Create Checkout
+POST http://localhost:3333/checkout
+Content-Type: application/json
+x-user-id: 9e34284e-fb15-4304-8d22-9a8d1186523c
+
