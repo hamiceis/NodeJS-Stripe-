@@ -12,8 +12,9 @@ model User {
   name  String
   email String @unique
 
-  stripeCustomerId     String?
-  stripeSubscriptionId String?
+  stripeCustomerId         String?
+  stripeSubscriptionId     String?
+  stripeSubscriptionStatus String?
 
   todos Todo[]
 

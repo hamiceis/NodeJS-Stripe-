@@ -3,6 +3,7 @@ import { z  } from "zod"
 import { prisma } from "../lib/prisma"
 import { createCheckoutSession } from "../lib/stripe"
 
+//Rota para criação de Checkout 
 export const createCheckoutController = async (req: Request, res: Response) => {
     const validationUserId = z.string().min(1)
   try {
@@ -22,7 +23,8 @@ export const createCheckoutController = async (req: Request, res: Response) => {
         return res.status(403).send({ message: "not authorized"})
       }
 
-      const checkout = await createCheckoutSession(user.id)
+      const checkout = await createCheckoutSession(user.id, user.email, user.name)
+
       
       return res.status(200).send(checkout)
        

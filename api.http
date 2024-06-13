@@ -4,8 +4,14 @@ Content-Type: application/json
 
 ###
 
+#DELETE USERS
+DELETE http://localhost:3333/users
+Content-Type: application/json
+
+###
+
 # GET UNIQUE USER
-GET http://localhost:3333/users/9e34284e-fb15-4304-8d22-9a8d1186523c
+GET http://localhost:3333/users/fd6db786-9e6f-4d47-8c1e-0ea2783917bf
 Content-Type: application/json
 
 ###
@@ -15,8 +21,8 @@ POST http://localhost:3333/users
 Content-Type: application/json
 
 {
-  "name": "Hamiceis Pereira",
-  "email": "hamiceis@test.com"
+  "name": "Hamiceis Pereira mendonca",
+  "email": "hamiceis@gmail.com"
 }
 
 ###
@@ -24,7 +30,7 @@ Content-Type: application/json
 #POST Create Todo
 POST http://localhost:3333/todos
 Content-Type: application/json
-x-user-id: 6f77410e-0219-44a6-90c1-1871c9d9d7f7
+x-user-id: fd6db786-9e6f-4d47-8c1e-0ea2783917bf
 
 {
   "title": "Minha primeira tarefa"
@@ -34,5 +40,5 @@ x-user-id: 6f77410e-0219-44a6-90c1-1871c9d9d7f7
 # Create Checkout
 POST http://localhost:3333/checkout
 Content-Type: application/json
-x-user-id: 9e34284e-fb15-4304-8d22-9a8d1186523c
+x-user-id: b518474b-6199-4f56-9161-aa8bc84d509b
 

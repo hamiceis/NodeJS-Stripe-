@@ -2,7 +2,8 @@ import { Router } from "express";
 import { 
   listUsersController,
   findOneUserController,
-  createUserController
+  createUserController,
+  deleteAllUsersController
  } from "../controllers/user.controller"
 
 export const userRouter = Router()
@@ -10,3 +11,4 @@ export const userRouter = Router()
 userRouter.get("/users", listUsersController)
 userRouter.get("/users/:userId", findOneUserController)
 userRouter.post("/users", createUserController)
+userRouter.delete("/users", deleteAllUsersController)
