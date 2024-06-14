@@ -11,7 +11,7 @@ import Stripe from "stripe"
 
 //Rota do Webhook para armazenamento de dados do banco de dados após a confirmação do pagamento/atualização de pag.
 export const stripeWebhookController = async (req: Request, res: Response) => {
-  let event = req.body;
+  let event: Stripe.Event
 
   if (!config.stripe.webhookSecret) {
     console.log("[STRIPE_WEBHOOK_SECRET_KEY não está atribuida]");
@@ -25,8 +25,8 @@ export const stripeWebhookController = async (req: Request, res: Response) => {
       req.body,
       signature,
       config.stripe.webhookSecret,
-      undefined,
-      Stripe.createSubtleCryptoProvider(),
+      undefined, //esses dados não são necessários, só estamos colocando se por acaso ocorrer algum erro
+      Stripe.createSubtleCryptoProvider(), //esses dados não são necessários 
     );
   } catch (error) {
     console.error(error);

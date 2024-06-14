@@ -10,8 +10,14 @@ Content-Type: application/json
 
 ###
 
+#UPDATED STATUS 
+PUT http://localhost:3333/users
+Content-Type: application/json
+
+###
+
 # GET UNIQUE USER
-GET http://localhost:3333/users/fd6db786-9e6f-4d47-8c1e-0ea2783917bf
+GET http://localhost:3333/users/06474a74-580e-4800-901c-be54fb3ebde6
 Content-Type: application/json
 
 ###
@@ -21,8 +27,8 @@ POST http://localhost:3333/users
 Content-Type: application/json
 
 {
-  "name": "Hamiceis Pereira mendonca",
-  "email": "hamiceis@gmail.com"
+  "name": "Jessica ferreira",
+  "email": "jessicaferreira@gmail.com"
 }
 
 ###
@@ -30,15 +36,14 @@ Content-Type: application/json
 #POST Create Todo
 POST http://localhost:3333/todos
 Content-Type: application/json
-x-user-id: fd6db786-9e6f-4d47-8c1e-0ea2783917bf
+x-user-id: 06474a74-580e-4800-901c-be54fb3ebde6
 
 {
-  "title": "Minha primeira tarefa"
+  "title": "Task #6"
 }
 
 ###
 # Create Checkout
 POST http://localhost:3333/checkout
 Content-Type: application/json
-x-user-id: b518474b-6199-4f56-9161-aa8bc84d509b
-
+x-user-id: 6987b872-f5f0-497b-99ad-11dfc1f19930

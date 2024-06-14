@@ -26,6 +26,17 @@ export const getStripeCustomerByEmail = async (email: string) => {
   return customers.data[0]
 }
 
+//Função para buscar os clientes que estão com serviço ativo
+export const getStripeCustomerSubscription = async (limit: number = 3) => {
+  const customers = await stripe.subscriptions.list({ status: "active", limit })
+  return customers.data.map((subscription) => ({
+      customer: subscription.customer,
+      id: subscription.id
+    })
+  );
+}
+
+//função para criar um cliente no stripe
 export const createStripeCustomer = async (input: { email: string, name: string}) => {
    //Busca se há algum email correspondente 
    let customer = await getStripeCustomerByEmail(input.email)
@@ -136,6 +147,17 @@ export const handleProcessWebhookUpdatedSubscription = async (
     throw new Error("user of stripeCustomerId not found")
   }
 
+  // await prisma.user.update({
+  //   where: {
+  //     id: userExist.id
+  //   },
+  //   data: {
+  //     stripeCustomerId,
+  //     stripeSubscriptionId,
+  //     stripeSubscriptionStatus
+  //   }
+  // });
+
    // Atualiza os dados clientIdStripe e StripeSubscriptionId e Status de pagamento se o novo status é diferente
   if (userExist.stripeSubscriptionStatus !== stripeSubscriptionStatus) {
     await prisma.user.update({
@@ -152,6 +174,4 @@ export const handleProcessWebhookUpdatedSubscription = async (
   } else {
     console.log(`User ${userExist.id} subscription status remains ${stripeSubscriptionStatus}`);
   }
-};
-
-
+}
